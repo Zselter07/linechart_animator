@@ -43,7 +43,7 @@ class Animator():
         self, 
         x_values: List[float], 
         y_values: List[float], 
-        output_folder_path: str
+        output_path: str
     ) -> Optional[str]:
         x_values = np.array(x_values)
         y_values = np.array(y_values)
@@ -90,7 +90,6 @@ class Animator():
             blit=True
         )
         
-        video_path = os.path.join(output_folder_path, 'chart_animation.mp4')
-        anim.save(video_path, writer='ffmpeg')
+        anim.save(output_path, writer='ffmpeg')
 
-        return os.path.exists(video_path)
+        return os.path.exists(output_path)
