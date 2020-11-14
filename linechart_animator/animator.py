@@ -22,7 +22,11 @@ class Animator():
         tick_params_color: str='#e5e5e5',
         label_font_size: str=15,
         title_font_size: str=20,
-        animation_interval: float=25
+        animation_interval: float=25,
+        fps: int=24,
+        dpi: int=192,
+        width: int=1920,
+        height: int=1080
     ):
         self.x_label_text = x_label_text
         self.y_label_text = y_label_text
@@ -38,6 +42,10 @@ class Animator():
         self.label_font_size = label_font_size
         self.title_font_size = title_font_size
         self.animation_interval = animation_interval
+        self.fps = fps
+        self.dpi = dpi
+        self.width = width,
+        self.height = height
 
     def create_animated_chart(
         self, 
@@ -56,7 +64,7 @@ class Animator():
         x_values = xnew
         y_values = y_smooth
 
-        fig = plt.figure()
+        fig = plt.figure(figsize=(self.width/self.dpi, self.heigth/self.dpi), dpi=self.dpi)
         ax = plt.axes(xlim=(np.amin(x_values)-1, np.amax(x_values)+1), ylim=(np.amin(y_values)-1, np.amax(y_values)+1))
         ax.tick_params(axis='both', which='both',length=self.tick_params_length)
 
@@ -90,6 +98,6 @@ class Animator():
             blit=True
         )
         
-        anim.save(output_path, writer='ffmpeg')
+        anim.save(output_path, writer='ffmpeg', fps=self.fps)
 
         return os.path.exists(output_path)

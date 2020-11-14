@@ -26,7 +26,10 @@ animator.create_animated_chart(
 )
 ````
 
-* Note that x axis values must be a sorted array.
+## Notes
+
+* x axis values must be a sorted array.
+* Matplotlib doesn't work with pixels directly, but rather physical sizes and DPI. If you want to display a figure with a certain pixel size, you need to know the DPI of your monitor. For example this link will detect that for you: https://www.infobyip.com/detectmonitordpi.php
 
 ### Optional parameters with their default values
 
@@ -42,4 +45,8 @@ tick_params_color: str='#e5e5e5'
 label_font_size: str=15
 title_font_size: str=20
 animation_interval: float=25
+fps: int=24
+dpi: int=192
+width: int=1920
+height: int=1080
 ````
