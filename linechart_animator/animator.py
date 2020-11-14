@@ -44,7 +44,7 @@ class Animator():
         self.animation_interval = animation_interval
         self.fps = fps
         self.dpi = dpi
-        self.width = width,
+        self.width = width
         self.height = height
 
     def create_animated_chart(
