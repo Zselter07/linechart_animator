@@ -64,7 +64,7 @@ class Animator():
         x_values = xnew
         y_values = y_smooth
 
-        fig = plt.figure(figsize=(self.width/self.dpi, self.heigth/self.dpi), dpi=self.dpi)
+        fig = plt.figure(figsize=(self.width/self.dpi, self.height/self.dpi), dpi=self.dpi)
         ax = plt.axes(xlim=(np.amin(x_values)-1, np.amax(x_values)+1), ylim=(np.amin(y_values)-1, np.amax(y_values)+1))
         ax.tick_params(axis='both', which='both',length=self.tick_params_length)
 
